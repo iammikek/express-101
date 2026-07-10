@@ -1,0 +1,16 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8007:8007"
+    environment:
+      - NODE_ENV=production
+      - PORT=8007
+      - APP_HOST=0.0.0.0
+      - DB_DATABASE=/app/database/database.sqlite
+      - JWT_SECRET=docker-jwt-secret-for-express-101-dev
+    volumes:
+      - app-data:/app/database
+
+volumes:
+  app-data:
